@@ -1,5 +1,5 @@
 from django.db.models import Q
-import django_filters2
+import dndtools.django_filters2 as django_filters2
 
 
 class FeatMultiPrerequisiteFieldFilter(django_filters2.CharFilter):

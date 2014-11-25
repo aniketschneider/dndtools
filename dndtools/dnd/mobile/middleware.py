@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponseRedirect
-from dnd.mobile.mobile_dispatcher import MobileDispatcher
+from dndtools.dnd.mobile.mobile_dispatcher import MobileDispatcher
 
 
 class MobileMiddleware(object):
