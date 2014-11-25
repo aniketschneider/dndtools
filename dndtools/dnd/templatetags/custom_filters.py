@@ -16,8 +16,8 @@ def _boolean_as_img(value):
     except Exception:
         mapped = BOOLEAN_MAPPING[None]
 
-    return mark_safe(u'<img src="%sicons/icon-%s.gif" alt="%s" class="yes-no-icon" />' % (
-        settings.ADMIN_MEDIA_PREFIX, mapped, mapped))
+    return mark_safe(u'<img src="%smedia/icons/icon-%s.gif" alt="%s" class="yes-no-icon" />' % (
+        settings.STATIC_URL, mapped, mapped))
 _boolean_as_img.is_safe = False
 
 def _plus_minus(value):

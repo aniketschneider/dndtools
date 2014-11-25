@@ -45,7 +45,7 @@ def media(filename, flags=''):
         see http://insist.sk/blog/django/149.html
     """
     flags = set(f.strip() for f in flags.split(','))
-    url = urlparse.urljoin(settings.MEDIA_URL, filename)
+    url = urlparse.urljoin(settings.STATIC_URL, filename)
     if 'absolute' in flags:
         url = _absolute_url(url)
     if (filename.endswith('.css') or filename.endswith('.js')) and 'no-timestamp' not in flags or \
