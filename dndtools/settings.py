@@ -2,6 +2,8 @@
 import os
 PROJECT_ROOT = os.path.dirname(__file__)
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
 ADMINS = (
     ('DnDtools', 'dndtools.eu@gmail.com'),
 )
@@ -37,6 +39,7 @@ USE_L10N = False
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static_collected')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
 

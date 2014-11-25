@@ -20,8 +20,13 @@ urlpatterns = patterns('',
 # For development server
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
-         'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT
-        }),
-                            )
+            (r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
+                'django.views.static.serve', {
+                    'document_root': settings.MEDIA_ROOT
+                    }),
+                )
+
+    import debug_toolbar
+    urlpatterns += patterns('',
+            url(r'^__debug__/', include(debug_toolbar.urls)),
+            )
