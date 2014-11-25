@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
+from django.views.generic.base import (TemplateView, RedirectView)
 from dndtools.dnd.feeds import AdminLogFeed
 
 
@@ -53,7 +53,7 @@ urlpatterns = patterns(
 
     # OTHERS
 
-    (r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
+    (r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
 
     # inaccurate
     url(
@@ -82,10 +82,10 @@ urlpatterns = patterns(
 )
 
 urlpatterns += patterns(
-    'django.views.generic.simple',
+    '',
 
-    ('^contact/$', 'redirect_to', {'url': '/contacts/'}),
-    ('^staff/$', 'redirect_to', {'url': '/contacts/staff/'}),
-    ('^editions/$', 'redirect_to', {'url': '/rulebooks/editions/'}),
-    ('^feat-(?P<feat_id>\d+)-(.*)\.html$', 'redirect_to', {'url': '/feats/a--1/a--%(feat_id)s/'}),
+    ('^contact/$', RedirectView.as_view(url='/contacts/')),
+    ('^staff/$', RedirectView.as_view(url='/contacts/staff/')),
+    ('^editions/$', RedirectView.as_view(url='/rulebooks/editions/')),
+    ('^feat-(?P<feat_id>\d+)-(.*)\.html$', RedirectView.as_view(url='/feats/a--1/a--%(feat_id)s/')),
 )
